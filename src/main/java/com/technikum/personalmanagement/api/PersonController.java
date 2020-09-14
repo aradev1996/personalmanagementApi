@@ -36,7 +36,7 @@ public class PersonController {
     }
 
     @GetMapping("/{id}")
-    public PersonResponse getPersonById(@RequestParam UUID id) {
+    public PersonResponse getPersonById(@PathVariable("id") UUID id) {
         return mapper.mapFromEntityToResponse(personService.findById(id));
     }
 
@@ -46,7 +46,7 @@ public class PersonController {
     }
 
     @PutMapping("/{id}")
-    public PersonResponse update(@RequestParam UUID id, @RequestBody PersonRequest personRequest) {
+    public PersonResponse update(@PathVariable("id") UUID id, @RequestBody PersonRequest personRequest) {
         PersonEntity mappedPersonEntity = mapper.mapFromRequestToEntity(personRequest);
         mappedPersonEntity.setId(id);
 
@@ -56,7 +56,7 @@ public class PersonController {
     }
 
     @PutMapping("/{id}/status")
-    public PersonResponse setStatus(@RequestParam UUID id) {
+    public PersonResponse setStatus(@PathVariable("id") UUID id) {
         PersonEntity personEntity = personService.findById(id);
         personEntity.setStatus(false);
         PersonEntity savedEntity = personService.save(personEntity);
