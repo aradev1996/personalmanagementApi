@@ -39,10 +39,6 @@ public class DateConverter {
             .asList(DATE_FORMAT_PATTERN_1, DATE_FORMAT_PATTERN_2, DATE_FORMAT_PATTERN_3,
                     DATE_FORMAT_PATTERN_4, DATE_FORMAT_PATTERN_5);
 
-    public String convertToDefaultDateTimeFormat(LocalDateTime localDateTime) {
-        return localDateTime.format(DATE_FORMAT_PATTERN_2);
-    }
-
     public LocalDate convert(String dateAsString) {
         Assert.hasText(dateAsString, "dateAsString may not be null or empty");
 
@@ -54,12 +50,6 @@ public class DateConverter {
         }
 
         return handleNoPatternMatched(dateAsString);
-    }
-
-    public LocalDateTime convertToLocalDateTime(String dateAsString) {
-        LocalDate localDate = convert(dateAsString);
-
-        return localDate.atStartOfDay();
     }
 
     private Optional<LocalDate> parseDate(String dateAsString, DateTimeFormatter dateTimeFormatter) {
