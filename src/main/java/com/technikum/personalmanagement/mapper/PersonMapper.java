@@ -24,6 +24,7 @@ public class PersonMapper {
         personEntity.setLastName(personRequest.getLastName());
         personEntity.setBirthDate(dateConverter.convert(personRequest.getBirthDate()));
         personEntity.setSalary(Integer.parseInt(personRequest.getSalary()));
+        personEntity.setLeavingDate(dateConverter.convert(personRequest.getLeavingDate()));
 
         return personEntity;
     }
