@@ -34,4 +34,19 @@ public class PersonServiceImpl implements PersonService {
 
         return personById.get();
     }
+
+    @Override
+    public void deletePerson(UUID personId) {
+        personRepository.deleteById(personId);
+    }
+
+    @Override
+    public int countActivePerson() {
+        return personRepository.getAllActive().size();
+    }
+
+    @Override
+    public int countInActivePerson() {
+        return personRepository.getAllInActive().size();
+    }
 }

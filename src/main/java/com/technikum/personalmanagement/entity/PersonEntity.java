@@ -25,6 +25,10 @@ public class PersonEntity {
     @Column(name = "last_name")
     private String lastName;
 
+    @Nationalized
+    @Column(name = "adress")
+    private String adress;
+
     @Column(name = "birth_date")
     private LocalDate birthDate;
 
@@ -103,5 +107,13 @@ public class PersonEntity {
 
     public void setStatus(Boolean status) {
         this.status = status;
+    }
+
+    public String getAdress() {
+        return adress;
+    }
+
+    public void setAdress(String adress) {
+        this.adress = adress;
     }
 }

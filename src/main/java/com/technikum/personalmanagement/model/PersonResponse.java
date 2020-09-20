@@ -2,9 +2,13 @@ package com.technikum.personalmanagement.model;
 
 public class PersonResponse {
 
+    private String userId;
+
     private String firstName;
 
     private String lastName;
+
+    private String adress;
 
     private String birthDate;
 
@@ -16,14 +20,25 @@ public class PersonResponse {
 
     private boolean status;
 
-    public PersonResponse(String firstName, String lastName, String birthDate, String recordingDate, String leavingDate, String salary, boolean status) {
+    public PersonResponse(String userId, String firstName, String lastName, String adress, String birthDate,
+                          String recordingDate, String leavingDate, String salary, boolean status) {
+        this.userId = userId;
         this.firstName = firstName;
         this.lastName = lastName;
+        this.adress = adress;
         this.birthDate = birthDate;
         this.recordingDate = recordingDate;
         this.leavingDate = leavingDate;
         this.salary = salary;
         this.status = status;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public String getAdress() {
+        return adress;
     }
 
     public String getFirstName() {

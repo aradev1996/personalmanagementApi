@@ -25,12 +25,13 @@ public class PersonMapper {
         personEntity.setBirthDate(dateConverter.convert(personRequest.getBirthDate()));
         personEntity.setSalary(Integer.parseInt(personRequest.getSalary()));
         personEntity.setLeavingDate(dateConverter.convert(personRequest.getLeavingDate()));
+        personEntity.setAdress(personRequest.getAdress());
 
         return personEntity;
     }
 
     public PersonResponse mapFromEntityToResponse(PersonEntity personEntity) {
-        return new PersonResponse(personEntity.getFirstName(), personEntity.getLastName(),
+        return new PersonResponse(personEntity.getId().toString(), personEntity.getFirstName(), personEntity.getLastName(), personEntity.getAdress(),
                 personEntity.getBirthDate().toString(), personEntity.getRecordingDate().toString(),
                 personEntity.getLeavingDate().toString(), personEntity.getSalary().toString(), personEntity.getStatus());
 

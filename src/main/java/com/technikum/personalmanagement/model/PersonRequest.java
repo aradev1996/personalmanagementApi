@@ -17,6 +17,8 @@ public class PersonRequest implements Serializable {
 
     private String leavingDate;
 
+    private String adress;
+
     private String salary;
 
     private boolean status;
@@ -24,7 +26,7 @@ public class PersonRequest implements Serializable {
     public PersonRequest() {
     }
 
-    public PersonRequest(String firstName, String lastName, String birthDate, String recordingDate, String leavingDate, String salary, Boolean status) {
+    public PersonRequest(String firstName, String lastName, String birthDate, String recordingDate, String leavingDate, String salary, Boolean status, String adress) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.birthDate = birthDate;
@@ -32,6 +34,7 @@ public class PersonRequest implements Serializable {
         this.leavingDate = leavingDate;
         this.salary = salary;
         this.status = status;
+        this.adress = adress;
     }
 
     public String getFirstName() {
@@ -59,6 +62,14 @@ public class PersonRequest implements Serializable {
     }
 
     public Boolean getStatus() {
+        return status;
+    }
+
+    public String getAdress() {
+        return adress;
+    }
+
+    public boolean isStatus() {
         return status;
     }
 }

@@ -14,4 +14,10 @@ public interface PersonService {
     List<PersonEntity> getAll();
 
     PersonEntity findById(UUID personId);
+
+    void deletePerson(UUID personId);
+
+    int countActivePerson();
+
+    int countInActivePerson();
 }
