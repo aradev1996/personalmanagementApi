@@ -2,6 +2,8 @@ package com.technikum.personalmanagement.service;
 
 import com.technikum.personalmanagement.entity.PersonEntity;
 import com.technikum.personalmanagement.repository.PersonRepository;
+import com.technikum.personalmanagement.validator.PersonBirthDateValidator;
+import com.technikum.personalmanagement.validator.PersonRequiredFieldsSetValidator;
 import org.springframework.stereotype.Component;
 import org.springframework.util.Assert;
 
@@ -14,10 +16,20 @@ public class PersonServiceImpl implements PersonService {
 
     private final PersonRepository personRepository;
 
-    public PersonServiceImpl(PersonRepository personRepository) {this.personRepository = personRepository;}
+    private final PersonRequiredFieldsSetValidator personRequiredFieldsSetValidator;
+
+    private final PersonBirthDateValidator personBirthDateValidator;
+
+    public PersonServiceImpl(PersonRepository personRepository, PersonRequiredFieldsSetValidator personRequiredFieldsSetValidator, PersonBirthDateValidator personBirthDateValidator) {
+        this.personRepository = personRepository;
+        this.personRequiredFieldsSetValidator = personRequiredFieldsSetValidator;
+        this.personBirthDateValidator = personBirthDateValidator;
+    }
 
     @Override
     public PersonEntity save(PersonEntity personEntity) {
+        personRequiredFieldsSetValidator.validate(personEntity);
+        personBirthDateValidator.validate(personEntity);
         return personRepository.save(personEntity);
     }
 
