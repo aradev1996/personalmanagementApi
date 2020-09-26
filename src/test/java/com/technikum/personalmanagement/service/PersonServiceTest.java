@@ -26,7 +26,7 @@ class PersonServiceTest extends AbstractTestBase {
     PersonService personService;
 
     @Test
-    @DisplayName("save")
+    @DisplayName("peron erstellen")
     public void _1() {
         PersonEntity expectedPerson = randomizer().createRandomObject(PersonEntity.class);
         expectedPerson.setBirthDate(LocalDate.MIN);
@@ -43,7 +43,7 @@ class PersonServiceTest extends AbstractTestBase {
     }
 
     @Test
-    @DisplayName("get all")
+    @DisplayName("alle personen")
     public void _2() {
         createRandomPerson();
         createRandomPerson();
@@ -55,7 +55,7 @@ class PersonServiceTest extends AbstractTestBase {
     }
 
     @Test
-    @DisplayName("find by id")
+    @DisplayName("person mit der UUID")
     public void _3() {
         PersonEntity expectedPerson = createRandomPerson();
 
@@ -104,6 +104,23 @@ class PersonServiceTest extends AbstractTestBase {
         person3.setStatus(true);
 
         assertEquals(2, personService.countInActivePerson());
+    }
+
+    @Test
+    @DisplayName("save by person by same firstname and last")
+    public void _8() {
+        PersonEntity person1 = createRandomPerson();
+        person1.setLastName("testLastName");
+        person1.setFirstName("testFirstName");
+        PersonEntity savedPerson1 = personService.save(person1);
+
+        PersonEntity person2 = createRandomPerson();
+        person2.setLastName("testLastName");
+        person2.setFirstName("testFirstName");
+        PersonEntity savedPerson2 = personService.save(person2);
+
+        assertEquals(savedPerson1.getFirstName(), savedPerson2.getFirstName());
+        assertEquals(savedPerson1.getLastName(), savedPerson2.getLastName());
     }
 
     public PersonEntity createRandomPerson() {

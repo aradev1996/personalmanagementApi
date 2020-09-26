@@ -13,7 +13,6 @@ public class PersonRequiredFieldsSetValidator {
         Assert.notNull(personEntity.getBirthDate(), "Birthdate is null");
         Assert.notNull(personEntity.getFirstName(), "Firstname is null");
         Assert.notNull(personEntity.getLastName(), "Lastname is null");
-        Assert.notNull(personEntity.getLeavingDate(), "Leavingdate is null");
         Assert.notNull(personEntity.getRecordingDate(), "Recordingdate is null");
         Assert.notNull(personEntity.getStatus(), "Status is null");
         Assert.notNull(personEntity.getSalary(), "Salary is null");

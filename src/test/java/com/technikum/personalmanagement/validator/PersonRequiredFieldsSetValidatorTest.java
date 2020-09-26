@@ -66,17 +66,8 @@ class PersonRequiredFieldsSetValidatorTest extends UnitTestBase {
     }
 
     @Test
-    @DisplayName("leavingdate: null, should throw excpetion")
-    public void _7() {
-        PersonEntity personEntity = randomizer().createRandomObject(PersonEntity.class);
-        personEntity.setLeavingDate(null);
-
-        assertThrows(IllegalArgumentException.class, () -> testable.validate(personEntity));
-    }
-
-    @Test
     @DisplayName("recordingdate: null, should throw excpetion")
-    public void _8() {
+    public void _7() {
         PersonEntity personEntity = randomizer().createRandomObject(PersonEntity.class);
         personEntity.setRecordingDate(null);
 
@@ -85,7 +76,7 @@ class PersonRequiredFieldsSetValidatorTest extends UnitTestBase {
 
     @Test
     @DisplayName("status: null, should throw excpetion")
-    public void _9() {
+    public void _8() {
         PersonEntity personEntity = randomizer().createRandomObject(PersonEntity.class);
         personEntity.setStatus(null);
 
@@ -94,7 +85,7 @@ class PersonRequiredFieldsSetValidatorTest extends UnitTestBase {
 
     @Test
     @DisplayName("salary: null, should throw excpetion")
-    public void _10() {
+    public void _9() {
         PersonEntity personEntity = randomizer().createRandomObject(PersonEntity.class);
         personEntity.setSalary(null);
 
