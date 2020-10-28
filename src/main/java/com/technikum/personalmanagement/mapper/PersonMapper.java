@@ -33,7 +33,7 @@ public class PersonMapper {
     public PersonResponse mapFromEntityToResponse(PersonEntity personEntity) {
         return new PersonResponse(personEntity.getId().toString(), personEntity.getFirstName(), personEntity.getLastName(), personEntity.getAdress(),
                 personEntity.getBirthDate().toString(), personEntity.getRecordingDate().toString(),
-                personEntity.getLeavingDate().toString(), personEntity.getSalary().toString(), personEntity.getStatus());
+                personEntity.getLeavingDate().toString(), personEntity.getSalary().toString(), personEntity.getStatus(), personEntity.getHolidayDays().toString());
 
 
     }

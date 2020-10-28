@@ -51,7 +51,7 @@ class PersonServiceTest extends AbstractTestBase {
 
         List<PersonEntity> result = personService.getAll();
 
-        assertEquals(3, result.size());
+        assertEquals(6, result.size());
     }
 
     @Test
@@ -90,7 +90,7 @@ class PersonServiceTest extends AbstractTestBase {
         PersonEntity person3 = createRandomPerson();
         person3.setStatus(false);
 
-        assertEquals(2, personService.countActivePerson());
+        assertEquals(3, personService.countActivePerson());
     }
 
     @Test

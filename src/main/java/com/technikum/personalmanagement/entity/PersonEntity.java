@@ -44,6 +44,8 @@ public class PersonEntity {
     @Column(name = "status")
     private Boolean status;
 
+    @Column(name = "HOLIDAY_DAYS")
+    private Integer holidayDays;
 
     public UUID getId() {
         return id;
@@ -115,5 +117,13 @@ public class PersonEntity {
 
     public void setAdress(String adress) {
         this.adress = adress;
+    }
+
+    public Integer getHolidayDays() {
+        return holidayDays;
+    }
+
+    public void setHolidayDays(Integer holidayDays) {
+        this.holidayDays = holidayDays;
     }
 }

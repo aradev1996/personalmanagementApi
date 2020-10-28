@@ -20,8 +20,10 @@ public class PersonResponse {
 
     private boolean status;
 
+    private String holidayDays;
+
     public PersonResponse(String userId, String firstName, String lastName, String adress, String birthDate,
-                          String recordingDate, String leavingDate, String salary, boolean status) {
+                          String recordingDate, String leavingDate, String salary, boolean status, String holidayDays) {
         this.userId = userId;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -31,6 +33,7 @@ public class PersonResponse {
         this.leavingDate = leavingDate;
         this.salary = salary;
         this.status = status;
+        this.holidayDays = holidayDays;
     }
 
     public String getUserId() {
@@ -67,5 +70,49 @@ public class PersonResponse {
 
     public boolean isStatus() {
         return status;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public void setAdress(String adress) {
+        this.adress = adress;
+    }
+
+    public void setBirthDate(String birthDate) {
+        this.birthDate = birthDate;
+    }
+
+    public void setRecordingDate(String recordingDate) {
+        this.recordingDate = recordingDate;
+    }
+
+    public void setLeavingDate(String leavingDate) {
+        this.leavingDate = leavingDate;
+    }
+
+    public void setSalary(String salary) {
+        this.salary = salary;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
+    }
+
+    public String getHolidayDays() {
+        return holidayDays;
+    }
+
+    public void setHolidayDays(String holidayDays) {
+        this.holidayDays = holidayDays;
     }
 }
