@@ -68,8 +68,4 @@ public class PersonRequest implements Serializable {
     public String getAdress() {
         return adress;
     }
-
-    public boolean isStatus() {
-        return status;
-    }
 }

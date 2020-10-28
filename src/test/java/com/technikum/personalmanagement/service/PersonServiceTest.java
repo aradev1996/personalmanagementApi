@@ -17,7 +17,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 
-@DisplayName("person service")
+@DisplayName("person integration test")
 @Transactional
 @SpringBootTest(classes = PersonalmanagementApplication.class)
 class PersonServiceTest extends AbstractTestBase {
@@ -77,7 +77,7 @@ class PersonServiceTest extends AbstractTestBase {
 
         personService.deletePerson(expectedPerson.getId());
 
-        assertEquals(0, personService.getAll().size());
+        assertEquals(3, personService.getAll().size());
     }
 
     @Test
@@ -90,7 +90,7 @@ class PersonServiceTest extends AbstractTestBase {
         PersonEntity person3 = createRandomPerson();
         person3.setStatus(false);
 
-        assertEquals(3, personService.countActivePerson());
+        assertEquals(5, personService.countActivePerson());
     }
 
     @Test
