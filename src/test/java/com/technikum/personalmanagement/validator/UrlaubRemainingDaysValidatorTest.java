@@ -4,6 +4,7 @@ import com.technikum.personalmanagement.UnitTestBase;
 import com.technikum.personalmanagement.entity.UrlaubEntity;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.time.LocalDate;
 
@@ -12,14 +13,14 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 @DisplayName("UrlaubRemainingDaysValidatorTest")
 class UrlaubRemainingDaysValidatorTest extends UnitTestBase {
 
-    UrlaubRemainingDaysValidator testable = new UrlaubRemainingDaysValidator();
+    UrlaubRemainingDaysValidator testable = new UrlaubRemainingDaysValidator(new UrlaubStartEndDateCounter());
 
     @Test
     @DisplayName("validate: success")
     public void _1() {
         UrlaubEntity urlaubEntity = randomizer().createRandomObject(UrlaubEntity.class);
         urlaubEntity.setStartDate(LocalDate.now().plusDays(1));
-        urlaubEntity.setEndDate(LocalDate.now().plusDays(5));
+        urlaubEntity.setEndDate(LocalDate.now().plusDays(10));
         urlaubEntity.getPerson().setHolidayDays(10);
 
         testable.validate(urlaubEntity);
